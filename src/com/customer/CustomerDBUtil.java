@@ -9,24 +9,20 @@ import java.util.List;
 
 public class CustomerDBUtil {
 	
+	private static Connection con = null;
+	private static Statement stmt = null;
+	private static ResultSet rs = null;
+	
 	public static List <Customer> validate(String userName, String password){
 		
 		ArrayList<Customer> cus = new ArrayList<>();
 		
-		//01- Create database connection
-			String url = "jdbc:mysql://localhost:3306/hotel";
-			String user = "root";
-			String pass = "1234";
-			
-		
 		//02- validate
 			try {
-				Class.forName("com.mysql.jdbc.Driver");
-				
-				Connection con = DriverManager.getConnection(url, user, pass);
-				Statement stmt = con.createStatement();
+				con = DBConnect.getConnection();
+				stmt = con.createStatement();
 				String sql = "select * from customer where username='"+userName+"' and password= '"+password+"'  ";
-				ResultSet rs = stmt.executeQuery(sql);
+				rs = stmt.executeQuery(sql);
 				
 				if(rs.next()) {
 					int id = rs.getInt(1);
@@ -53,16 +49,10 @@ public class CustomerDBUtil {
 		
 		boolean isSuccess = false;
 		
-		//Create DB Conection
-		String url = "jdbc:mysql://localhost:3306/hotel";
-		String user = "root";
-		String pass = "1234";
 		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			
-			Connection con = DriverManager.getConnection(url, user, pass);
-			Statement stmt = con.createStatement();
+			con = DBConnect.getConnection();
+			stmt = con.createStatement();
 			String sql = "insert into customer values (0,'"+name+"','"+email+"','"+phone+"','"+username+"','"+password+"')";
 			int rs = stmt.executeUpdate(sql);
 			
