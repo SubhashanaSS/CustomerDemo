@@ -46,4 +46,37 @@ public class CustomerDBUtil {
 		
 		return cus;
 	}
+	
+	public static boolean insertcustomer(String name, String email, String phone, String username,String password ) {
+	/*Create parameters to catch data from *CustomerInsert.java* servlet.
+	 * Boolean value use for inform servlet class that data insert success or failed */
+		
+		boolean isSuccess = false;
+		
+		//Create DB Conection
+		String url = "jdbc:mysql://localhost:3306/hotel";
+		String user = "root";
+		String pass = "1234";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			Connection con = DriverManager.getConnection(url, user, pass);
+			Statement stmt = con.createStatement();
+			String sql = "insert into customer values (0,'"+name+"','"+email+"','"+phone+"','"+username+"','"+password+"')";
+			int rs = stmt.executeUpdate(sql);
+			
+			if(rs > 0) {          //checks sql query executed values or not
+				isSuccess = true;
+			} else {
+				isSuccess = false;
+			}
+			
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return isSuccess;
+	}
 }

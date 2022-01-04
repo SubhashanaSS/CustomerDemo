@@ -41,8 +41,5 @@ public class Customer {
 	public String getPassword() {
 		return password;
 	}
-
-	
-	
 	
 }
