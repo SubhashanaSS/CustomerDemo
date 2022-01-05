@@ -130,4 +130,29 @@ public class CustomerDBUtil {
 		
 		return cus;
 	}
+	
+	public static boolean deleteCustomer(String Id) {
+		
+		int convertedID = Integer.parseInt(Id);
+		
+		try {
+			con = DBConnect.getConnection();
+			stmt = con.createStatement();
+			String sql = "delete from customer where id='"+convertedID+"'";
+			int rs = stmt.executeUpdate(sql);
+			
+			if(rs > 0) {
+				isSuccess = true;
+			}
+			else {
+				isSuccess = false;
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return isSuccess;
+	}
 }

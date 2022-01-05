@@ -49,17 +49,29 @@
 	</table>
 	
 	<c:url value="updatecustomer.jsp" var="cusupdate">
-	
-	<c:param name="id" value="${id }"></c:param>
-	<c:param name="name" value="${name }"></c:param>
-	<c:param name="email" value="${email }"></c:param>
-	<c:param name="phone" value="${phone }"></c:param>
-	<c:param name="uname" value="${username }"></c:param>
-	<c:param name="pass" value="${password }"></c:param>
+		<c:param name="id" value="${id }"></c:param>
+		<c:param name="name" value="${name }"></c:param>
+		<c:param name="email" value="${email }"></c:param>
+		<c:param name="phone" value="${phone }"></c:param>
+		<c:param name="uname" value="${username }"></c:param>
+		<c:param name="pass" value="${password }"></c:param>
 	</c:url>
 	
 	<a href="${cusupdate }">
 	<input type="button" name="update" value="Update my Data">
+	</a>
+	
+	<br>
+	<c:url value="deletecustomer.jsp" var="cusdelete">
+		<c:param name="id" value="${id }"></c:param>
+		<c:param name="name" value="${name }"></c:param>
+		<c:param name="email" value="${email }"></c:param>
+		<c:param name="phone" value="${phone }"></c:param>
+		<c:param name="uname" value="${username }"></c:param>
+		<c:param name="pass" value="${password }"></c:param>
+	</c:url>
+	<a href="${cusdelete }">
+	<input type="button" name="delete" value="Delete my Data">
 	</a>
 	
 </body>
