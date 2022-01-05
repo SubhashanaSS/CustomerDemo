@@ -19,10 +19,10 @@
 	%>
 
 
-	<form action="" method="post">
+	<form action="update" method="post">
 	
 	  <label for="cusid">Customer ID:</label><br>
-	  <input type="text" name="cusid" value="<%=id %>"><br>
+	  <input type="text" name="cusid" value="<%=id %>" readonly><br>
 	  
 	  <label for="name">Name:</label><br>
 	  <input type="text" name="name" value="<%=name %>"><br>
