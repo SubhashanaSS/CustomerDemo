@@ -1,6 +1,7 @@
 package com.customer;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,7 +35,11 @@ public class UpdateCustomerServlet extends HttpServlet {
 		isTrue = CustomerDBUtil.updatecustomer(id, name, email, phone, username, password);
 		
 		if(isTrue == true) {
-			RequestDispatcher dis = request.getRequestDispatcher("success.jsp");
+			
+			List<Customer> cusDetails = CustomerDBUtil.getCustomerDetails(id);
+			request.setAttribute("cusDetails", cusDetails); 
+			
+			RequestDispatcher dis = request.getRequestDispatcher("useraccount.jsp");
 			dis.forward(request, response);
 		}
 		else {
