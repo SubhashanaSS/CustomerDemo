@@ -10,9 +10,9 @@
 
 	<form action="log" method="post">
 	  <label for="uname">User name:</label><br>
-	  <input type="text" name="uid"><br>
+	  <input type="text" name="uid" placeholder="Enter your user name"><br>
 	  <label for="pass">Password:</label><br>
-	  <input type="password" name="psss"><br>
+	  <input type="password" name="psss" placeholder="Enter your password"><br>
 	  
 	  <input type="submit" value="Submit" value="login">
 	</form>
